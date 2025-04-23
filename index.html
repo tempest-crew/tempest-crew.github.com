@@ -1,22 +1,28 @@
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <title>Iframe Proxy</title>
-                <style>
-                    html, body, iframe {
-                        margin: 0;
-                        padding: 0;
-                        height: 100%;
-                        width: 100%;
-                        border: none;
-                    }
-                    iframe {
-                        display: block;
-                    }
-                </style>
-            </head>
-            <body>
-                <iframe src="https://212.229.84.209/"></iframe>
-            </body>
-            </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tempest-crew</title>
+  <style>
+    html, body, iframe {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="main-frame" src="https://212.229.84.209/"></iframe>
+  <script>
+    const iframe = document.getElementById("main-frame");
+    const fallback = setTimeout(() => {
+      window.location.href = "404.html";
+    }, 3000);
+    iframe.onload = () => {
+      clearTimeout(fallback);
+    };
+  </script>
+</body>
+</html>
